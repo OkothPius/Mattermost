@@ -4,7 +4,7 @@ from .forms import GameForm
 from app import app
 
 # Views
-GAMES_PER_PAGE = 5
+GAMES_PER_PAGE = 10
 
 @app.route('/')
 def index():
@@ -31,4 +31,4 @@ def new_game():
         new_game.save_game()
         return redirect(url_for('index'))
 
-    return render_template('new_game.html', title=title, game_form=form)
+    return render_template('new_game.html', game_form=form)
