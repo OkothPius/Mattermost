@@ -1,12 +1,16 @@
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, request
 from .models import Game
 from .forms import GameForm
 from app import app
 
 # Views
+GAMES_PER_PAGE = 5
+
 @app.route('/')
 def index():
-    games = Game.query.all()
+    # Set the pagination
+    page = request.args.get('page', 1, type=int)
+    games = Game.query.paginate(page=page, per_page=GAMES_PER_PAGE)
     return render_template('index.html', games=games)
 
 
@@ -27,5 +31,4 @@ def new_game():
         new_game.save_game()
         return redirect(url_for('index'))
 
-    title = "New Game Form"
     return render_template('new_game.html', title=title, game_form=form)
