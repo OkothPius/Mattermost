@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 
+<!-- Styles block -->
+{% block styles %}
+  <link rel="stylesheet" href="{{url_for('static',filename='css/styles.css')}}">
+{% endblock %}
+
+<!-- Content block -->
 {% block content %}
+<div class="container">
   <h3>Hey there GameBoard</h3>
+</div>
 {% endblock %}
