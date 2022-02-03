@@ -8,6 +8,33 @@
 <!-- Content block -->
 {% block content %}
 <div class="container">
-  <h3>Hey there GameBoard</h3>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Viewer Hours</th>
+        <th scope="col">Hours Streamed</th>
+        <th scope="col">ACV</th>
+        <th scope="col">Creators</th>
+        <th scope="col">Streams</th>
+      </tr>
+    </thead>
+
+    {% for game in games %}
+      <tbody>
+        <tr class="list-color">
+          <th scope="row"></th>
+          <td>{{game.name}}</td>
+          <td>{{game.viewer_hour}}</td>
+          <td>{{game.hours_streamed}}</td>
+          <td>{{game.acv_num}}</td>
+          <td>{{game.creators}}</td>
+          <td>{{game.streams_num}}</td>
+        </tr>
+      </tbody>
+    {% endfor %}
+
+   </table>
 </div>
 {% endblock %}

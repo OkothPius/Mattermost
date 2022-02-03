@@ -11,5 +11,9 @@ class Game(db.Model):
     creators = db.Column(db.Integer)
     streams_num = db.Column(db.Integer)
 
+    def save_game(self):
+        db.session.add(self)
+        db.session.commit()
+
     def __repr__(self):
         return f'Game is {self.name}'
