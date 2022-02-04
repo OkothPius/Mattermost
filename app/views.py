@@ -1,7 +1,8 @@
-from flask import render_template, redirect, url_for, request
+from app import app
 from .models import Game
 from .forms import GameForm
-from app import app
+from flask import render_template, redirect, url_for, request
+
 
 # Views
 GAMES_PER_PAGE = 10
